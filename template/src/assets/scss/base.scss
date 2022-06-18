@@ -1,0 +1,20 @@
+@import '../../../node_modules/shardust-css/shardust.scss';
+
+/* Read Docs how to Extract Shardust CSS utility classes
+ * without
+ * https://shardust.netlify.app/extract-utility-classes/
+ */
+.footer {
+  @extend
+    .padding-y-10,
+    .text-lg,
+    .animation,
+    .fade-in-down,
+    .delay-2;
+
+  span {
+    @extend
+      .inline-block,
+      .text-underline;
+  }
+}
