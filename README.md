@@ -17,9 +17,9 @@ if you install the package `locally`,
 
 ```bash
 # YARN
-$ yarn global add weavv
+$ yarn global add weavv-cli
 # NPM
-$ npm i -g weavv
+$ npm i -g weavv-cli
 ```
 
 then simply run this command and follow the onscreen instructions,
