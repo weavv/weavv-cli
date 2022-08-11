@@ -10,7 +10,7 @@ const welcome = require('cli-welcome')
 const { version } = require('./package.json')
 const generator = path.resolve(__dirname, './')
 const log = console.log
-const cli = cac('create-xard-app')
+const cli = cac('weavv')
 
 const showEnvInfo = async() => {
   log(chalk.bold('\nEnvironment Info:'))

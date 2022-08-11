@@ -8,8 +8,8 @@ const rootDir = __dirname
 module.exports = {
   prompts: require('./prompts'),
   templateData() {
-    const pm = this.answers.pm === 'yarn' ? 'yarn' : 'npm'
-    const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm run'
+    const pm = this.answers.pm === 'yarn' ? 'yarn' : 'npm -s'
+    const pmRun = this.answers.pm === 'yarn' ? 'yarn' : 'npm --silent run'
     return {
       pm,
       pmRun

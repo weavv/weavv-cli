@@ -1,16 +1,13 @@
-@import '../../../node_modules/weavv-css/weavv.scss';
+@import '../../../node_modules/weavvcss/weavv.scss';
 
-/* Read Docs how to Extract Shardust CSS utility classes
- * without
- * https://weavvcss.netlify.app/extract-utility-classes/
+/* Read Docs how to extract WEAVV CSS utility classes
+ * (https://weavvcss.netlify.app/extract-utility-classes/)
  */
+ 
 .footer {
   @extend
     .padding-y-10,
-    .text-lg,
-    .animation,
-    .fade-in-down,
-    .delay-2;
+    .text-lg;
 
   span {
     @extend
