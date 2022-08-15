@@ -90,10 +90,10 @@ gulp.task('bundle-css', () => {
 
 gulp.task('build-js', () => {
   const srcAppJsPath = 'src/views'
-  const srcComponentsJsPath = 'src/assets/js/components/*.js'
+  //const srcComponentsJsPath = 'src/assets/js/components/*.js'
   return gulp.src([
       srcAppJsPath + '/app.js', // default bundle
-      srcComponentsJsPath
+      //srcComponentsJsPath
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest(distJsPath))
@@ -117,6 +117,10 @@ gulp.task('bundle-js', () => {
     .pipe(serve.reload({
       stream: true
     }))
+})
+gulp.task('move-js', () => {
+  return gulp.src('src/assets/js/**/*')
+    .pipe(gulp.dest(distJsPath))
 })
 
 
@@ -208,6 +212,7 @@ gulp.task('remove-junk-css', () => {
 gulp.task('production', gulp.series(
   'build-js',
   'bundle-js',
+  'move-js',
   'build-sass',
   'bundle-css',
   'purge-css',
@@ -223,6 +228,7 @@ gulp.task('development', gulp.series([
 
   'build-js',
   'bundle-js',
+  'move-js',
   'build-sass',
   'bundle-css',
   'move-css',
@@ -255,6 +261,7 @@ gulp.task('development', gulp.series([
     gulp.series([
       'build-js',
       'bundle-js',
+      'move-js',
       reload
     ])
   )
@@ -264,6 +271,7 @@ gulp.task('development', gulp.series([
     gulp.series([
       'build-js',
       'bundle-js',
+      'move-js',
       reload
     ])
   )
