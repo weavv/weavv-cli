@@ -3,15 +3,14 @@
 /* Read Docs how to extract WEAVV CSS utility classes
  * (https://weavvcss.netlify.app/extract-utility-classes/)
  */
- 
-.footer {
-  @extend
-    .padding-y-10,
-    .text-lg;
 
-  span {
-    @extend
-      .inline-block,
-      .text-underline;
-  }
+.container {
+  @extend
+    .font-poppins,
+    .antialiased,
+    .height-screen,
+    .bg-tint-onyx-4,
+    .flex,
+    .flex-column,
+    .flex-center;
 }
