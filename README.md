@@ -8,9 +8,9 @@ make sure you have [npx](https://www.npmjs.com/package/npx) or with [yarn](https
 
 ```bash
 # YARN
-$ yarn weavv my-new-project
+$ yarn weavv-cli my-new-project
 # NPM
-$ npx weavv my-new-project
+$ npx weavv-cli my-new-project
 ```
 
 if you install the package `locally`,
