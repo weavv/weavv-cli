@@ -113,14 +113,16 @@ gulp.task('bundle-js', () => {
       distJsPath + '/scripts.pre.js'
     ])
     .pipe(concat('app.js'))
+    .pipe(uglify())
     .pipe(gulp.dest(distJsPath))
     .pipe(serve.reload({
       stream: true
     }))
 })
 gulp.task('move-js', () => {
-  return gulp.src('src/assets/js/**/*')
-    .pipe(gulp.dest(distJsPath))
+  return gulp.src('src/assets/js/components/*')
+    .pipe(uglify())
+    .pipe(gulp.dest(distJsPath + '/components'))
 })
 
 

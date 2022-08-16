@@ -2,7 +2,7 @@
 
 Create a new frontend project with [WEAVV CSS](https://github.com/weavv/weavv-css) framework and scaffolding instantly bundles with necessary build tools for HTML, CSS/SCSS, JS and image assets.
 
-### _usage
+## Usage
 
 make sure you have [npx](https://www.npmjs.com/package/npx) or with [yarn](https://yarnpkg.com/en/) installed, you can create new WEAVV project without installing the package,
 
@@ -28,6 +28,10 @@ then simply run this command and follow the onscreen instructions,
 # weavv <PROJECT_NAME_OR_PROJECT_DIR>
 $ weavv my-new-project
 ```
+
+## Credits
+
+[SAO](https://github.com/saojs/sao), [NodeJS](https://nodejs.org/), [Gulp](https://gulpjs.com/)
 
 ---
 
