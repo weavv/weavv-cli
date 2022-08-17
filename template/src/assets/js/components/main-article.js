@@ -1,4 +1,5 @@
 class MainArticle extends HTMLElement {
+
   constructor() {
     super();
   }
@@ -22,5 +23,6 @@ class MainArticle extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
+  
 }
 customElements.define("main-article", MainArticle);

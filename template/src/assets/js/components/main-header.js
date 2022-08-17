@@ -1,4 +1,5 @@
 class MainHeader extends HTMLElement {
+
   constructor() {
     super();
     const data = {
@@ -29,6 +30,7 @@ class MainHeader extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
+  
 }
 // register component
 customElements.define("main-header", MainHeader);

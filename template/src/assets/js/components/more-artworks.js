@@ -1,4 +1,5 @@
 class MoreArtworks extends HTMLElement {
+
   constructor() {
     super();
   }
@@ -27,5 +28,6 @@ class MoreArtworks extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
+  
 }
 customElements.define("more-artworks", MoreArtworks);

@@ -1,4 +1,5 @@
 class ProfileAvatar extends HTMLElement {
+
   constructor() {
     super();
   }
@@ -22,5 +23,6 @@ class ProfileAvatar extends HTMLElement {
     this.querySelector("a").href = this.getAttribute("url");
     this.querySelector("username").innerText = this.getAttribute("name");
   }
+  
 }
 customElements.define("profile-avatar", ProfileAvatar);

@@ -1,4 +1,5 @@
 class MainFooter extends HTMLElement {
+
   constructor() {
     super();
   }
@@ -37,6 +38,7 @@ class MainFooter extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
+  
 }
 // register component
 customElements.define("main-footer", MainFooter);

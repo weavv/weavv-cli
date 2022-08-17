@@ -1,4 +1,5 @@
 class MyFollowers extends HTMLElement {
+
   constructor() {
     super();
   }
@@ -42,5 +43,6 @@ class MyFollowers extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
+  
 }
 customElements.define("my-followers", MyFollowers);
