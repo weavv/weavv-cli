@@ -90,10 +90,10 @@ gulp.task('bundle-css', () => {
 
 gulp.task('build-js', () => {
   const srcAppJsPath = 'src/views'
-  //const srcComponentsJsPath = 'src/assets/js/components/*.js'
+  const srcComponentsJsPath = 'src/assets/js/**/**/*.js'
   return gulp.src([
       srcAppJsPath + '/app.js', // default bundle
-      //srcComponentsJsPath
+      srcComponentsJsPath
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest(distJsPath))
@@ -120,9 +120,9 @@ gulp.task('bundle-js', () => {
     }))
 })
 gulp.task('move-js', () => {
-  return gulp.src('src/assets/js/components/*')
+  return gulp.src('src/views/**/**/**/**/*.js')
     .pipe(uglify())
-    .pipe(gulp.dest(distJsPath + '/components'))
+    .pipe(gulp.dest(distProdPath + '/views'))
 })
 
 
@@ -202,7 +202,8 @@ gulp.task('remove-junk-js', () => {
 gulp.task('remove-junk-css', () => {
   return gulp.src([
       distProdPath + '/assets/css/base.css',
-      distProdPath + '/assets/css/style_merged.css'
+      distProdPath + '/assets/css/style_merged.css',
+      distProdPath + '/views/app.js',
     ], {
       read: false,
       allowEmpty: true

@@ -1,5 +1,4 @@
 class SocialNetworks extends HTMLElement {
-
   constructor() {
     super();
   }
@@ -17,6 +16,5 @@ class SocialNetworks extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
-  
 }
 customElements.define("social-networks", SocialNetworks);

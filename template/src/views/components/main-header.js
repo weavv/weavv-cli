@@ -1,25 +1,24 @@
 class MainHeader extends HTMLElement {
-
   constructor() {
     super();
     const data = {
-      brand: "WEAVV CSS"
-    }
-    this.brand = data.brand
+      brand: "WEAVV CSS",
+    };
+    this.brand = data.brand;
     this.text = `Welcome to ${this.brand} Demo!`;
   }
-  
+
   // component attributes
   static get observedAttributes() {
     return ["text"];
   }
-  
+
   // attribute change
   attributeChangedCallback(property, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[property] = newValue;
   }
-  
+
   // connect component
   connectedCallback() {
     const template = document.createElement("template");
@@ -30,8 +29,6 @@ class MainHeader extends HTMLElement {
     `;
     this.appendChild(template.content.cloneNode("true"));
   }
-  
 }
 // register component
 customElements.define("main-header", MainHeader);
-

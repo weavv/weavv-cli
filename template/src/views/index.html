@@ -17,9 +17,9 @@
     />
   </head>
 
-  <body class="container">
+  <body>
 
-    <div class="(group) relative flex flex-column flex-center">
+    <div class="container">
 
       <main-header
         text="Welcome to WEAVV CSS Demo">
@@ -30,9 +30,12 @@
         name="John Doe">
       </profile-avatar>
 
-      <div class="stack-1 relative margin-8 (md)max-width-screen-sm flex (sm)flex-row (md)flex-column (md)justify-center (sm)justify-between items-center bg-white curve-border-lg (hover)shadow-dreamy-lg transition duration-300 linear overflow-hidden cursor-pointer">
+      <div class="card">
 
-        <img class="transform (group-hover)scale-105 duration-300 (md)width-full (sm)width-64 (md)height-40 (sm)height-88 object-cover object-center bg-tint-onyx-3 bg-tint-onyx-5 filter brightness-4 saturate-2" sizes="70vmin" srcset="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=300 300w, https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg?auto=compress&cs=tinysrgb&w=640 600w">
+        <profile-image
+          title="PEXELS"
+          url="https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg">
+        </profile-image>
 
         <main-article></main-article>
 
@@ -50,6 +53,7 @@
 
     <script src="views/components/main-header.js" type="module"></script>
     <script src="views/components/profile-avatar.js" type="module"></script>
+    <script src="views/components/profile-image.js" type="module"></script>
     <script src="views/components/main-article.js" type="module"></script>
     <script src="views/components/social-networks.js" type="module"></script>
     <script src="views/components/my-followers.js" type="module"></script>

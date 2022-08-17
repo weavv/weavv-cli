@@ -4,7 +4,7 @@
  * (https://weavvcss.netlify.app/extract-utility-classes/)
  */
 
-.container {
+body {
   @extend
     .font-poppins,
     .antialiased,
@@ -13,4 +13,35 @@
     .flex,
     .flex-column,
     .flex-center;
+}
+
+.container {
+  @extend
+    .\(group\),
+    .relative,
+    .flex,
+    .flex-column,
+    .flex-center;
+}
+
+.card {
+  @extend
+    .stack-1,
+    .relative,
+    .margin-8,
+    .\(md\)max-width-screen-sm,
+    .flex,
+    .\(sm\)flex-row,
+    .\(md\)flex-column,
+    .\(md\)justify-center,
+    .\(sm\)justify-between,
+    .items-center,
+    .bg-white,
+    .curve-border-lg,
+    .\(hover\)shadow-dreamy-lg,
+    .transition,
+    .duration-300,
+    .ease-in-out,
+    .overflow-hidden,
+    .cursor-pointer;
 }

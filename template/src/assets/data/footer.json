@@ -1,0 +1,17 @@
+[
+  {
+    "text": "Image taken from",
+    "url": "https://www.pexels.com/photo/photography-of-roadway-during-dusk-1034662/",
+    "vendor": "PEXELS"
+  },
+  {
+    "text": "Code editor from",
+    "url": "https://microsoft.github.io/monaco-editor/",
+    "vendor": "Microsoft Monaco"
+  },
+  {
+    "text": "Framework written with",
+    "url": "https://sass-lang.com/",
+    "vendor": "Sass-Lang"
+  }
+]
