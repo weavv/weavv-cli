@@ -56,11 +56,10 @@ class MoreArtworks extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
-    this.attributeDataUpdate();
+    this.update();
   }
 
-  // attribute data update
-  attributeDataUpdate() {
+  update() {
     this.data.forEach((item) => {
       let artworks = document.createElement("div");
       artworks.classList.add("transform-perspective-500");

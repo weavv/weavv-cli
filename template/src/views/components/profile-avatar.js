@@ -1,11 +1,15 @@
 class ProfileAvatar extends HTMLElement {
   constructor() {
     super();
+
+    this.name = "No Name.";
+    this.link = "https://i.pravatar.cc/250";
+    this.imageurl = "https://i.pravatar.cc/250";
   }
 
   // component attributes
   static get observedAttributes() {
-    return ["name", "image", "url"];
+    return ["name", "imageurl", "link"];
   }
 
   // attribute change
@@ -20,9 +24,9 @@ class ProfileAvatar extends HTMLElement {
     template.innerHTML = `
       <div class="absolute left-16 top-16 transform (group-hover)-translate-y-24 transition duration-100 linear flex flex-center">
 
-        <img class="width-32 height-32 object-cover object-center curve-border-full filter brightness-1 saturate-2" src="${this.image}" alt="${this.name}" />
+        <img class="width-32 height-32 object-cover object-center curve-border-full filter brightness-1 saturate-2" src="${this.imageurl}" alt="${this.name}" />
 
-        <a class="padding-x-4 text-xl-2 text-white font-bold (hover)text-underline" href="${this.url}" target="_blank">
+        <a class="padding-x-4 text-xl-2 text-white font-bold (hover)text-underline" href="${this.link}" target="_blank">
           ${this.name}
         </a>
 

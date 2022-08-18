@@ -1,11 +1,11 @@
 [
   {
-    "text": "Image taken from",
-    "url": "https://www.pexels.com/photo/photography-of-roadway-during-dusk-1034662/",
+    "text": "Images taken from",
+    "url": "https://www.pexels.com/",
     "vendor": "PEXELS"
   },
   {
-    "text": "Code editor from",
+    "text": "Code Editor is",
     "url": "https://microsoft.github.io/monaco-editor/",
     "vendor": "Microsoft Monaco"
   },

@@ -33,7 +33,7 @@ reload = (done) => {
 }
 
 
-gulp.task('serve', gulp.series(function(done) {
+gulp.task('serve', gulp.series((done) => {
   serve.init({
     server: { baseDir: distProdPath },
     notify: false
@@ -167,6 +167,13 @@ gulp.task('move-css', () => {
 })
 
 
+gulp.task('build-json', () => {
+  return gulp.src('src/assets/data/*.json')
+    .pipe(jsonmin())
+    .pipe(gulp.dest(distProdPath + '/assets/data'))
+})
+
+
 gulp.task('purge-css', () => {
   return gulp.src(distCssPath + '/style_merged.css')
     .pipe(purgeCss({
@@ -211,6 +218,7 @@ gulp.task('production', gulp.series(
   'build-js',
   'bundle-js',
   'move-js',
+  'build-json',
   'build-sass',
   'bundle-css',
   'purge-css',
@@ -223,10 +231,10 @@ gulp.task('production', gulp.series(
 
 
 gulp.task('development', gulp.series([
-
   'build-js',
   'bundle-js',
   'move-js',
+  'build-json',
   'build-sass',
   'bundle-css',
   'move-css',
@@ -234,9 +242,7 @@ gulp.task('development', gulp.series([
   'move-image-low',
   'move-image-high',
   'serve'
-
 ], () => {
-
   const watchSrcImagePath = 'src/assets/image/**/*'
   gulp.watch(watchSrcImagePath,
     gulp.series([

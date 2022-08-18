@@ -10,7 +10,8 @@ class ProfileImage extends HTMLElement {
     this.small = imagesize.small;
     this.large = imagesize.large;
 
-    this.url = "";
+    this.title = "No Title";
+    this.url = "https://images.pexels.com/photos/1034662/pexels-photo-1034662.jpeg";
   }
 
   // component attributes

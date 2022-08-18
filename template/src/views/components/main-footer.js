@@ -2,23 +2,7 @@ class MainFooter extends HTMLElement {
   constructor() {
     super();
 
-    this.data = [
-      {
-        text: "Images taken from",
-        url: "https://www.pexels.com/",
-        vendor: "PEXELS",
-      },
-      {
-        text: "Code Editor is",
-        url: "https://microsoft.github.io/monaco-editor/",
-        vendor: "Microsoft Monaco",
-      },
-      {
-        text: "Frameowrk written with",
-        url: "https://sass-lang.com/",
-        vendor: "Sass-Lang",
-      },
-    ];
+    this.vendors = [];
   }
 
   // connect component
@@ -40,12 +24,29 @@ class MainFooter extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
-    this.attributeDataUpdate();
+    this.getData();
   }
 
-  // attribute data update
-  attributeDataUpdate() {
-    this.data.forEach((item) => {
+  getData() {
+    fetch("./assets/data/vendors.json")
+      .then((response) => {
+        response.json().then((data) => {
+          delete this.error;
+          data.length = 3;
+          this.vendors = data;
+          console.log(data);
+          this.update();
+        });
+      })
+      .catch((error) => {
+        this.error = error;
+        console.log(error);
+        this.update();
+      });
+  }
+
+  update() {
+    this.vendors.forEach((item) => {
       let vendors = document.createElement("div");
       vendors.innerHTML = `
         ${item.text}

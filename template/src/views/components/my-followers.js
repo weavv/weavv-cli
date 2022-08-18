@@ -75,11 +75,10 @@ class MyFollowers extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
-    this.attributeDataUpdate();
+    this.update();
   }
 
-  // attribute data update
-  attributeDataUpdate() {
+  update() {
     this.data.forEach((item) => {
       let followers = document.createElement("div");
       followers.innerHTML = `
