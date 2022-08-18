@@ -24,15 +24,29 @@ class MoreArtworks extends HTMLElement {
         style: "(hover)-rotate-y-39",
       },
     ];
+
+    this.copyright = "No Copyright.";
   }
 
+  // component attributes
+  static get observedAttributes() {
+    return ["copyright"];
+  }
+
+  // attribute change
+  attributeChangedCallback(property, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    this[property] = newValue;
+  }
+
+  // connect component
   connectedCallback() {
     const template = document.createElement("template");
     template.innerHTML = `
       <div class="absolute left-16 bottom-24 transform (group-hover)translate-y-32 transition duration-1000 ease-in-out">
 
         <div class="padding-y-2 font-lato text-xs text-shade-onyx-1">
-          Arkworks &copy; John Doe
+          ${this.copyright}
         </div>
 
         <data-artworks
@@ -42,7 +56,11 @@ class MoreArtworks extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
+    this.attributeDataUpdate();
+  }
 
+  // attribute data update
+  attributeDataUpdate() {
     this.data.forEach((item) => {
       let artworks = document.createElement("div");
       artworks.classList.add("transform-perspective-500");
@@ -53,4 +71,5 @@ class MoreArtworks extends HTMLElement {
     });
   }
 }
+// register component
 customElements.define("more-artworks", MoreArtworks);

@@ -1,6 +1,19 @@
 class MainArticle extends HTMLElement {
   constructor() {
     super();
+
+    this.article = "No Content.";
+  }
+
+  // component attributes
+  static get observedAttributes() {
+    return ["article"];
+  }
+
+  // attribute change
+  attributeChangedCallback(property, oldValue, newValue) {
+    if (oldValue === newValue) return;
+    this[property] = newValue;
   }
 
   connectedCallback() {
@@ -12,11 +25,14 @@ class MainArticle extends HTMLElement {
             Absolute <br> Silent
           </p>
           <p class="hidden (group-hover)block text-tint-teal-1 depth-tight-2 transition duration-300 linear (md)text-right">
-            Absolute <br> <span class="(group-hover)text-underline">Noisy</span>
+            Absolute <br>
+            <span class="(group-hover)text-underline">
+              Noisy
+            </span>
           </p>
         </div>
         <p class="block">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque id magna in purus <span class="text-underline line-thickness-3 line-offset-1">sodales efficitur</span>. Maecenas consequat sem magna, mollis pulvinar ante tincidunt quis.
+          ${this.article}
         </p>
       </div>
     `;

@@ -1,11 +1,8 @@
 class MainHeader extends HTMLElement {
   constructor() {
     super();
-    const data = {
-      brand: "WEAVV CSS",
-    };
-    this.brand = data.brand;
-    this.text = `Welcome to ${this.brand} Demo!`;
+
+    this.text = `No Header.`;
   }
 
   // component attributes

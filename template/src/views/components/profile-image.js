@@ -9,18 +9,22 @@ class ProfileImage extends HTMLElement {
 
     this.small = imagesize.small;
     this.large = imagesize.large;
+
     this.url = "";
   }
 
+  // component attributes
   static get observedAttributes() {
-    return ["url", "title"];
+    return ["title", "url"];
   }
 
+  // attribute change
   attributeChangedCallback(property, oldValue, newValue) {
     if (oldValue === newValue) return;
     this[property] = newValue;
   }
 
+  // connect component
   connectedCallback() {
     const template = document.createElement("template");
     template.innerHTML = `
@@ -29,4 +33,5 @@ class ProfileImage extends HTMLElement {
     this.appendChild(template.content.cloneNode("true"));
   }
 }
+// register component
 customElements.define("profile-image", ProfileImage);

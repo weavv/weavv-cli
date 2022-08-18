@@ -1,9 +1,9 @@
 const autoPrefixer = require('autoprefixer')
 const clean = require('gulp-clean')
-const concat = require('gulp-concat')
 const concatCss = require('gulp-concat-css')
-const gulp = require('gulp')
+const concat = require('gulp-concat')
 const gulpLoadPlugins = require('gulp-load-plugins')
+const gulp = require('gulp')
 const gutil = require('gulp-util')
 const htmlmin = require('gulp-htmlmin')
 const imagemin = require('gulp-imagemin')
@@ -14,25 +14,24 @@ const pngquant = require('imagemin-pngquant')
 const postCss = require('gulp-postcss')
 const purgeCss = require('gulp-purgecss')
 const rename = require('gulp-rename')
-const sass = require('gulp-sass')
 const sassGlob = require('gulp-sass-glob')
+const sass = require('gulp-sass')
 const serve = require('browser-sync').create()
-const uglify = require('gulp-uglify-es').default
 const uglifyCss = require('gulp-uglifycss')
+const uglify = require('gulp-uglify-es').default
 const version = require('gulp-version-number')
 const webp = require('gulp-webp')
 
-const frameworkPath = 'framework'
+const distCssPath = 'dist/assets/css'
 const distJsPath = 'dist/assets/js'
 const distProdPath = 'dist'
-const distProdRecursivePath = 'dist/**/*'
-
 
 // reload web browser
 reload = (done) => {
   serve.reload()
   done()
 }
+
 
 gulp.task('serve', gulp.series(function(done) {
   serve.init({
@@ -62,10 +61,8 @@ gulp.task('build-html', () => {
 })
 
 
-const srcScssPath = 'src/assets/scss/base.scss'
-const distCssPath = 'dist/assets/css'
 gulp.task('build-sass', () => {
-  return gulp.src(srcScssPath)
+  return gulp.src('src/assets/scss/base.scss')
     .pipe(sassGlob())
     .pipe(sass({ outputStyle: 'compressed' })
       .on('error', sass.logError))
@@ -89,11 +86,9 @@ gulp.task('bundle-css', () => {
 
 
 gulp.task('build-js', () => {
-  const srcAppJsPath = 'src/views'
-  const srcComponentsJsPath = 'src/assets/js/**/**/*.js'
   return gulp.src([
-      srcAppJsPath + '/app.js', // default bundle
-      srcComponentsJsPath
+      'src/views/app.js', // default bundle
+      'src/assets/js/**/**/*.js'
     ])
     .pipe(concat('scripts.js'))
     .pipe(gulp.dest(distJsPath))
@@ -137,7 +132,6 @@ gulp.task('move-image-high', () => {
   return gulp.src(srcImageRecursivePath)
     .pipe(gulp.dest(distHqImagePath))
 })
-
 gulp.task('optimize-image-low', () => {
   return gulp.src(srcImageRecursivePath)
     .pipe(imagemin([
@@ -186,6 +180,7 @@ gulp.task('purge-css', () => {
     .pipe(rename('style.css'))
     .pipe(gulp.dest(distCssPath))
 })
+
 
 gulp.task('remove-junk-js', () => {
   return gulp.src([
@@ -250,7 +245,6 @@ gulp.task('development', gulp.series([
       reload
     ])
   )
-
   gulp.watch(watchSrcImagePath,
     gulp.series([
       'move-image-low',
@@ -259,8 +253,7 @@ gulp.task('development', gulp.series([
     ])
   )
 
-  const watchSrcScriptsPath = 'src/assets/js/**/*.js'
-  gulp.watch(watchSrcScriptsPath,
+  gulp.watch('src/assets/js/**/*.js',
     gulp.series([
       'build-js',
       'bundle-js',
@@ -269,8 +262,7 @@ gulp.task('development', gulp.series([
     ])
   )
 
-  const watchSrcAppPath = 'src/views/**/*.js'
-  gulp.watch(watchSrcAppPath,
+  gulp.watch('src/views/**/*.js',
     gulp.series([
       'build-js',
       'bundle-js',
@@ -279,8 +271,7 @@ gulp.task('development', gulp.series([
     ])
   )
 
-  const watchSrcScssPath = 'src/assets/scss/**/*.scss'
-  gulp.watch(watchSrcScssPath,
+  gulp.watch('src/assets/scss/**/*.scss',
     gulp.series([
       'build-sass',
       'bundle-css',
@@ -289,8 +280,7 @@ gulp.task('development', gulp.series([
     ])
   )
 
-  const watchSrcHtmlPath = 'src/views/**/*.html'
-  gulp.watch(watchSrcHtmlPath,
+  gulp.watch('src/views/**/*.html',
     gulp.series([
       'build-html',
       'move-css',

@@ -40,7 +40,11 @@ class MainFooter extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
+    this.attributeDataUpdate();
+  }
 
+  // attribute data update
+  attributeDataUpdate() {
     this.data.forEach((item) => {
       let vendors = document.createElement("div");
       vendors.innerHTML = `

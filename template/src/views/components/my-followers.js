@@ -62,6 +62,7 @@ class MyFollowers extends HTMLElement {
     ];
   }
 
+  // connect component
   connectedCallback() {
     const template = document.createElement("template");
     template.innerHTML = `
@@ -74,7 +75,11 @@ class MyFollowers extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
+    this.attributeDataUpdate();
+  }
 
+  // attribute data update
+  attributeDataUpdate() {
     this.data.forEach((item) => {
       let followers = document.createElement("div");
       followers.innerHTML = `
@@ -84,4 +89,5 @@ class MyFollowers extends HTMLElement {
     });
   }
 }
+// register component
 customElements.define("my-followers", MyFollowers);

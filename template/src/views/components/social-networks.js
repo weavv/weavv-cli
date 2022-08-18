@@ -3,6 +3,7 @@ class SocialNetworks extends HTMLElement {
     super();
   }
 
+  // connect component
   connectedCallback() {
     const template = document.createElement("template");
     template.innerHTML = `
@@ -17,4 +18,5 @@ class SocialNetworks extends HTMLElement {
     this.appendChild(template.content.cloneNode("true"));
   }
 }
+// register component
 customElements.define("social-networks", SocialNetworks);
