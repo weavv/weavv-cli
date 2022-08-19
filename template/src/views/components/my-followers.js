@@ -2,64 +2,7 @@ class MyFollowers extends HTMLElement {
   constructor() {
     super();
 
-    this.data = [
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?1",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?2",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?3",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?4",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?5",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?6",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?7",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?8",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?9",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?10",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?11",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?12",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?13",
-      },
-      {
-        name: "John Doe",
-        url: "https://i.pravatar.cc/50?14",
-      },
-    ];
+    this.followers = [];
   }
 
   // connect component
@@ -75,11 +18,28 @@ class MyFollowers extends HTMLElement {
       </div>
     `;
     this.appendChild(template.content.cloneNode("true"));
-    this.update();
+    this.getData();
+  }
+
+  getData() {
+    fetch("./assets/data/followers.json")
+      .then((response) => {
+        response.json().then((data) => {
+          delete this.error;
+          this.followers = data;
+          console.log(data);
+          this.update();
+        });
+      })
+      .catch((error) => {
+        this.error = error;
+        console.log(error);
+        this.update();
+      });
   }
 
   update() {
-    this.data.forEach((item) => {
+    this.followers.forEach((item) => {
       let followers = document.createElement("div");
       followers.innerHTML = `
         <img class="width-10 height-10 (hover)width-16 (hover)height-16 transform (hover)-translate-y-4 object-cover object-center border-4 border-transparent (hover)border-tint-teal-1 bg-tone-onyx-2 transition duration-300 linear (hover)shadow-md curve-border-full" src="${item.url}" alt="${item.name}">

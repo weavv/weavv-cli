@@ -2,6 +2,8 @@
 
 Create a new frontend project with [WEAVV CSS](https://github.com/weavv/weavv-css) framework and scaffolding instantly bundles with necessary build tools for HTML, CSS/SCSS, JS and image assets.
 
+> Note: The example boilerplate is using Vanilla JS to create web components.
+
 ## Usage
 
 make sure you have [npx](https://www.npmjs.com/package/npx) or with [yarn](https://yarnpkg.com/en/) installed, you can create new WEAVV project without installing the package,
