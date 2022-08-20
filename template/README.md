@@ -22,4 +22,4 @@ $ <%= pmRun %> watch
 
 ---
 
-This frontend project is a bundle with the [XARD CSS](https://xardcss.netlify.app) framework.
+This frontend project is a bundle with the [WEAVV CSS](https://weavvcss.netlify.app) framework.
