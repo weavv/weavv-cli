@@ -29,7 +29,7 @@ class MainArticle extends HTMLElement {
           </p>
           <p class="hidden (group-hover)block text-tint-teal-1 depth-tight-2 transition duration-300 linear (md)text-right">
           Absolute <br>
-            <span class=(group-hover)text-underline'>
+            <span class="(group-hover)text-underline">
               ${this.secondarytitle}
             </span>
           </p>
