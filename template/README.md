@@ -23,3 +23,5 @@ $ <%= pmRun %> watch
 ---
 
 This frontend project is a bundle with the [WEAVV CSS](https://weavvcss.netlify.app) framework.
+
+Note: The example boilerplate is using `Vanilla JS` to create `web components`.

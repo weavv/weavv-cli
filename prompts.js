@@ -1,31 +1,31 @@
-const { random } = require('superb')
+const { random } = require("superb");
 
 module.exports = [
   {
-    name: 'name',
-    message: 'Project name',
-    default: '{outFolder}'
+    name: "name",
+    message: "Project Name",
+    default: "{outFolder}",
   },
   {
-    name: 'description',
-    message: 'Project description',
-    default: `My ${random()} WEAVV CSS project`
+    name: "description",
+    message: "Project Description",
+    default: `My ${random()} WEAVV CSS project`,
   },
   {
-    name: 'author',
-    type: 'string',
-    message: 'Author name',
-    default: '{gitUser.name}',
-    store: true
+    name: "author",
+    type: "string",
+    message: "Author Name",
+    default: "{gitUser.name}",
+    store: true,
   },
   {
-    name: 'pm',
-    message: 'Choose the package manager',
+    name: "pm",
+    message: "Choose a Package Manager",
     choices: [
-      { name: 'Yarn', value: 'yarn' },
-      { name: 'Npm', value: 'npm' }
+      { name: "Npm", value: "npm" },
+      { name: "Yarn", value: "yarn" },
     ],
-    type: 'list',
-    default: 'yarn'
-  }
-]
+    type: "list",
+    default: "npm",
+  },
+];
